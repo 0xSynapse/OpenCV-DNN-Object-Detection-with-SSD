@@ -21,11 +21,3 @@ To run the main code pipeline to get the Inference in your local, use this comma
 ```shell script
 python main.py
 ```
----
-
-### Run The Gradio App
-To run the web app in your local browser, use this command: 
-
-```shell script
-python app.py
-```
