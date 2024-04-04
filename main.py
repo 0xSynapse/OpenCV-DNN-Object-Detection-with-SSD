@@ -1,10 +1,9 @@
 import cv2
 import numpy as np 
-#import time 
 
 
-video = '/home/ankan_opencv/MobileNet-SSDxYOLOv3/street.mp4'
-image = '/home/ankan_opencv/MobileNet-SSDxYOLOv3/dog.jpg'
+video = '/home/ankan_opencv/officework/indore-talk24-projects/OpenCV-DNN-Object-Detection-with-SSD/street.mp4'
+image = '/home/ankan_opencv/officework/indore-talk24-projects/OpenCV-DNN-Object-Detection-with-SSD/dog.jpg'
 
 def load_model():
     model= cv2.dnn.readNet(model='frozen_inference_graph.pb',
@@ -85,7 +84,7 @@ def start_video(video_path):
         blob, outputs = detect_objects(frame, model)
         boxes, class_ids = get_box_dimensions(outputs, height, width)
         frame = draw_labels(boxes, colors, class_ids, classes, frame)
-        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
         cv2.imshow('output', frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):  # Press 'q' to exit the loop
@@ -121,7 +120,7 @@ def write_video(video_path):
         blob, outputs = detect_objects(frame, model)
         boxes, class_ids = get_box_dimensions(outputs, height, width)
         frame = draw_labels(boxes, colors, class_ids, classes, frame)
-        #cv2.imshow('output', frame)
+        # cv2.imshow('output', frame)
         
         # Write the processed frame to the output video file
         out.write(frame)
@@ -135,5 +134,7 @@ def write_video(video_path):
 
 
 # write_video(video)
+
+# start_video(video)
 
 image_detect(image)
